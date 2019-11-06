@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    <meta charset="utf-8" />
+        <title>Projects</title>
+        <h:outputStylesheet library="default" name="css/form.css"  />
+     </h:head>
+     
+     <h:body>
+     
+   
+       
+     <b:navBar brand="PM TOOL" brandHref="#" inverse="true">
+  <b:navbarLinks>
+    <b:navLink value="My Messages" href="mesmessages.jsf"></b:navLink>
+    <b:navLink value="My Projects" href="myprojects.jsf"></b:navLink>
+    <b:navLink value="Send a Message  " href="Message.jsf"></b:navLink>
+ <b:dropMenu value="Sign Out">
+    <h:form>
+ <h:form id="f" >
+ 
+<b:commandButton value="Logout" ajax="true" action="#{userBean.doLogout()}"/>
+        </h:form>
+      </h:form>
+    
+     
+    </b:dropMenu>    
+  </b:navbarLinks>
+</b:navBar>
+   <h:form>
+  <b:dataTable value="#{userBean.getProjetByUser(userBean.id)}"
+               var="p"
+               excel="true"
+               csv="true"
+               pdf="true"
+               columnVisibility="true"
+               copy="true"
+               print="true">
+    <b:dataTableColumn value="#{p.project.nomProject}" label="Nom du projet" />
+    <b:dataTableColumn value="#{p.nom}" label="Nom du tache" />
+    <b:dataTableColumn value="#{p.project.dateFin}" label="Date Fin Projet" />
+  
+   
+   
+  
+  </b:dataTable>
+  
+
+  
+  
+</h:form>
+
+</h:body>
+</html>
+
+ 
+ 
+

@@ -1,0 +1,6 @@
+mbeans\MessageBean.class
+mbeans\UserBean.class
+mbeans\TacheBean.class
+mbeans\CalendarView.class
+mbeans\MaxTacheBean.class
+mbeans\ProjectBean.class

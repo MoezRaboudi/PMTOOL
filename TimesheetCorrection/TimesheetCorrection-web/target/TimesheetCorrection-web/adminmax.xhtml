@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    <meta charset="utf-8" />
+        <title>Projects</title>
+        <h:outputStylesheet library="default" name="css/form.css"  />
+     </h:head>
+     
+     
+     <h:body>
+  <b:navBar brand="PM TOOL" brandHref="#" inverse="true">
+  <b:navbarLinks>
+    <b:navLink value="Home" href="homeadmin.jsf"></b:navLink>
+    
+   
+  </b:navbarLinks>
+</b:navBar>
+    
+    
+    
+ <h:form id="form">
+        <p:commandButton value="CHECK IT"  action="#{tacheBean.getAllTaches()}" icon="pi pi-check" />
+        </h:form>
+   
+
+	</h:body>
+</html>

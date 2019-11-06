@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+
+    xmlns:p="http://primefaces.org/ui">  
+    <h:head>
+    <meta charset="utf-8" />
+        <h:outputStylesheet library="default" name="css/form.css"  />
+     </h:head>
+     
+     <h:body>
+     
+     
+     <b:navBar brand="PM TOOL" brandHref="#" inverse="true">
+  <b:navbarLinks>
+    <b:navLink value="Home" href="homeuser.jsf"></b:navLink>
+   
+  </b:navbarLinks>
+</b:navBar>
+     
+     <h:form>
+  <b:dataTable value="#{userBean.getTachesbyuser(userBean.id)}"
+               var="car"
+               excel="true"
+               csv="true"
+               pdf="true"
+               columnVisibility="true"
+               copy="true"
+               print="true"
+               row-style-class="#{tacheBean.getdiff(car.id)>0?'light-power':'light'}, #{tacheBean.getdiff(car.id)>0?'dark-power':'dark'} ">
+    <b:dataTableColumn value="#{car.nom}" label="Tache" />
+    <b:dataTableColumn value="#{car.project.nomProject}" label="Projet" />
+    <b:dataTableColumn value="#{car.user.nom}" label="Utilisateur" />
+   
+    <b:dataTableColumn value="#{tacheBean.getdiff(car.id)}" label="Nombre de jours" order="asc"/>
+    <b:dataTableColumn>
+ 
+  <f:facet name="header">
+        <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+          <li>Valider</li>
+         
+        </ul>
+      </f:facet>
+ 
+ <h:form id="form" >
+ 
+<b:commandButton value="Done" ajax="true" action="#{tacheBean.modifdatereal(car.id)}" />
+        </h:form>
+ 
+ </b:dataTableColumn>
+    
+  </b:dataTable>
+  
+</h:form>
+     
+    
+   
+
+	</h:body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+    <meta charset="utf-8" />
+        <title>Home Admin</title>
+        <h:outputStylesheet library="default" name="css/form.css"  />
+     </h:head>
+     
+     <h:body>
+       <b:navBar brand="PM TOOL" brandHref="#" inverse="true">
+  <b:navbarLinks>
+  <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
+  <b:navbarLinks pull="right" styleClass="hidden-xs">
+    <b:dropMenu value="ADD">
+      <b:navLink value="Projects" href="ajproj.jsf"></b:navLink>
+      <b:navLink value="Tasks" href="ajtask.jsf"></b:navLink>
+       <b:navLink value="Check The Lowest Task" href="adminmax.jsf"></b:navLink>
+    
+     
+    </b:dropMenu>
+            <b:navLink value="Logout  " href="logout.jsf"></b:navLink>
+    
+  </b:navbarLinks>
+    <b:navLink value="Projects" href="affproj.jsf"></b:navLink>
+    <b:navLink value="Tasks" href="afftache.jsf"></b:navLink>
+    <b:navLink value="Affect Task " href="tacheproj.jsf"></b:navLink>
+        <b:navLink value="Lowest Task Done " href="maxtache.jsf"></b:navLink>
+    
+  </b:navbarLinks>
+</b:navBar>
+
+
+
+	</h:body>
+</html>

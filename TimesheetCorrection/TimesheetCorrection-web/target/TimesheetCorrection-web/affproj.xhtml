@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    <meta charset="utf-8" />
+        <title>Projects</title>
+        <h:outputStylesheet library="default" name="css/form.css"  />
+     </h:head>
+     
+     <h:body>
+     
+   
+       
+     <b:navBar brand="PM TOOL" brandHref="#" inverse="true">
+  <b:navbarLinks>
+    <b:navLink value="Home" href="homeadmin.jsf"></b:navLink>
+   
+  </b:navbarLinks>
+</b:navBar>
+   <h:form>
+  <b:dataTable value="#{projectBean.affprojects()}"
+               var="car"
+               excel="true"
+               csv="true"
+               pdf="true"
+               columnVisibility="true"
+               copy="true"
+               print="true">
+    <b:dataTableColumn value="#{car.nomProject}" label="Nom" />
+    <b:dataTableColumn value="#{car.dateDeb}" label="Date Debut" />
+    <b:dataTableColumn value="#{car.dateFin}" label="Date Fin" />
+  
+      <b:dataTableColumn>
+ 
+  <f:facet name="header">
+        <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+          <li>Supprimer</li>
+         
+        </ul>
+      </f:facet>
+ 
+ <h:form id="form" >
+ 
+<b:commandButton  value="DEL" ajax="true"  action="#{projectBean.deleteprojet(car.id)}" />
+        </h:form>
+ 
+ </b:dataTableColumn>
+ 
+   
+   
+  
+  </b:dataTable>
+  
+
+  
+  
+</h:form>
+      <h:outputText value="Taches" />
+
+</h:body>
+</html>
+
+ 
+ 
+

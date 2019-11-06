@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Ajouter tache</title>
+     
+    </h:head>
+    <h:body>
+ 
+     <b:navBar brand="PM TOOL" brandHref="#" inverse="true">
+  <b:navbarLinks>
+  <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
+  <b:navbarLinks pull="right" styleClass="hidden-xs">
+    <b:dropMenu value="ADD">
+      <b:navLink value="Projects" href="ajproj.jsf"></b:navLink>
+      <b:navLink value="Tasks" href="ajtask.jsf"></b:navLink>
+    
+     
+    </b:dropMenu>
+ <b:dropMenu value="Sign Out">
+    <h:form>
+ <h:form id="f" >
+ 
+<b:commandButton value="Logout" ajax="true" action="#{userBean.doLogout()}"/>
+        </h:form>
+      </h:form>
+    
+     
+    </b:dropMenu>    
+  </b:navbarLinks>
+  <b:navLink value="Send a Message" href="MessageTL.jsf"></b:navLink>
+    <b:navLink value="Inbox" href="mesmessagesTL.jsf"></b:navLink>
+    <b:navLink value="Projects" href="affproj.jsf"></b:navLink>
+    <b:navLink value="Tasks" href="afftache.jsf"></b:navLink>
+    <b:navLink value="Affect Task " href="tacheproj.jsf"></b:navLink>
+        <b:navLink value="Task State " href="taskstate.jsf"></b:navLink>
+    
+  </b:navbarLinks>
+</b:navBar>
+    
+  <b:form horizontal="true">
+
+<fieldset>
+
+
+<b:container fluid="true" contentDisabled="false">
+  <b:row contentDisabled="false">
+    <b:column span="6" contentDisabled="false" offset="1">
+      <b:inputText placeholder="Nom" value="#{tacheBean.nom}" label="Nom du Tache" required="true"/>
+      <b:dateTimePicker value="#{tacheBean.dateDeb}" label="Date de début" required="true"/>
+            <b:dateTimePicker value="#{tacheBean.dateFin}" label="Date de fin" required="true"/>
+      
+ <p:commandButton value="Ajouter" action="#{tacheBean.ajoutTache()}" icon="pi pi-check" />  
+   </b:column>
+   
+  </b:row>
+</b:container>
+      </fieldset>
+
+  </b:form>
+     
+    </h:body>
+</html>

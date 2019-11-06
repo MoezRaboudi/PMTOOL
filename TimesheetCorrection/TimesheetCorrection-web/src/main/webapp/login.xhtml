@@ -1,0 +1,38 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	     xmlns:b="http://bootsfaces.net/ui"
+	   xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	
+	<title>Login </title></h:head>
+	<h:body>
+	<b:form id="loginForm">
+		<h:panelGrid columns="2">
+	
+  <b:inputText id="usernameDiv" fieldId="j_username" name="j_username"
+               value="#{userBean.login}"
+               label="Username" />
+  <b:message for="@previous" />
+  <b:inputSecret id="passwordDiv" fieldId="j_password" name="j_password"
+                 value="#{userBean.mdp}"
+                 label="Password"  />
+  <b:message for="passwordDiv" />
+  <b:commandButton update="@form" value="Login" action="#{userBean.doLogin()}" />
+  
+  
+  <p:linkButton outcome="inscription.jsf" value="Inscription" style="margin-right:20px;">
+</p:linkButton>
+  	</h:panelGrid>
+  
+</b:form>
+	
+	 </h:body>
+</html>

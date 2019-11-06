@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Messagerie</title>
+     
+    </h:head>
+    <h:body>
+      
+     <b:navBar brand="PM TOOL" brandHref="#" inverse="true">
+  <b:navbarLinks>
+  <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
+  <b:navbarLinks pull="right" styleClass="hidden-xs">
+    <b:dropMenu value="ADD">
+      <b:navLink value="Projects" href="ajproj.jsf"></b:navLink>
+      <b:navLink value="Tasks" href="ajtask.jsf"></b:navLink>
+    
+     
+    </b:dropMenu>
+ <b:dropMenu value="Sign Out">
+    <h:form>
+ <h:form id="f" >
+ 
+<b:commandButton value="Logout" ajax="true" action="#{userBean.doLogout()}"/>
+        </h:form>
+      </h:form>
+    
+     
+    </b:dropMenu>    
+  </b:navbarLinks>
+  <b:navLink value="Send a Message" href="MessageTL.jsf"></b:navLink>
+    <b:navLink value="Inbox" href="mesmessagesTL.jsf"></b:navLink>
+    <b:navLink value="Projects" href="affproj.jsf"></b:navLink>
+    <b:navLink value="Tasks" href="afftache.jsf"></b:navLink>
+    <b:navLink value="Affect Task " href="tacheproj.jsf"></b:navLink>
+        <b:navLink value="Task State " href="taskstate.jsf"></b:navLink>
+    
+  </b:navbarLinks>
+</b:navBar>
+
+  <b:form horizontal="true">
+  	               <b:container fluid="true" contentDisabled="false">
+  
+  <p:growl id="growl" showDetail="true" sticky="true" />  
+       
+    <p:panel header="Messagerie">  
+        <h:panelGrid columns="2" cellpadding="5">  
+             	<h:outputLabel for="Nom">sujet : <span class="requis">*</span></h:outputLabel>
+	        <h:inputText id="Nom" value="#{messageBean.subject}" required="true" size="20" maxlength="60" />
+<h:outputLabel for="Description">Message <span class="requis">*</span></h:outputLabel>
+	        <h:inputTextarea id="Description" value="#{messageBean.msg}" required="true" size="100" maxlength="100" span="10" rows="10" />
+	        <h:message id="DescriptionMessage" for="Description" errorClass="erreur" />
+	               
+	  <b:selectOneMenu span="10"  value="#{messageBean.userid}" select2="true"  required="true" label="Envoyer à">
+       <f:selectItem span="10" itemLabel="(Please select)" itemValue="" />
+       <f:selectItems span="10" value="#{messageBean.allUsers}"  var="c" itemValue="#{c.id}" itemLabel="#{c.nom}" />
+     </b:selectOneMenu> 
+	
+        </h:panelGrid>  
+   
+        <p:commandButton value="Envoyer" action="#{messageBean.ajoutmessage(messageBean.userid,messageBean.userid1)}" update="@form" onclick="alert('Message envoyé  avec succés');" />
+        
+    </p:panel>  
+    	     </b:container>
+     
+  </b:form>
+     
+    </h:body>
+</html>

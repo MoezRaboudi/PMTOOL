@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Affectation</title>
+     
+    </h:head>
+    <h:body>
+      <b:navBar brand="PM TOOL" brandHref="#" inverse="true">
+  <b:navbarLinks>
+    <b:navLink value="Home" href="homeadmin.jsf"></b:navLink>
+   
+  </b:navbarLinks>
+</b:navBar>
+
+  <b:form horizontal="true">
+  	               <b:container fluid="true" contentDisabled="false">
+  
+  <p:growl id="growl" showDetail="true" sticky="true" />  
+       
+    <p:panel header="Affectation">  
+        <h:panelGrid columns="2" cellpadding="5">  
+             
+	               
+	  <b:selectOneMenu span="10"  value="#{tacheBean.id}" select2="true"  required="true" label="Task Name">
+       <f:selectItem span="10" itemLabel="(Please select)" itemValue="" />
+       <f:selectItems span="10" value="#{tacheBean.toutetache()}"  var="c" itemValue="#{c.id}" itemLabel="#{c.nom}" />
+     </b:selectOneMenu> 
+      <b:selectOneMenu span="10"  value="#{tacheBean.selectedprojectid}" select2="true"  required="true" label="Project Name">
+       <f:selectItem span="10" itemLabel="(Please select)" itemValue="" />
+       <f:selectItems span="10" value="#{tacheBean.allProjects}"  var="c" itemValue="#{c.id}" itemLabel="#{c.nomProject}" />
+     </b:selectOneMenu> 
+	<b:selectOneMenu span="10"  value="#{tacheBean.userid}" select2="true"  required="true" label="User Name">
+       <f:selectItem span="10" itemLabel="(Please select)" itemValue="" />
+       <f:selectItems span="10" value="#{tacheBean.allUsers}"  var="c" itemValue="#{c.id}" itemLabel="#{c.nom}" />
+     </b:selectOneMenu> 
+        </h:panelGrid>  
+   
+        <p:commandButton value="DONE" action="#{tacheBean.afftache()}" update="@form" onclick="alert('Tache affecté  avec succés');" />
+        
+    </p:panel>  
+    	     </b:container>
+     
+  </b:form>
+     
+    </h:body>
+</html>

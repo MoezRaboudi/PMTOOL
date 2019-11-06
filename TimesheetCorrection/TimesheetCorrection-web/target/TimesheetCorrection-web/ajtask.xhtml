@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Ajouter tache</title>
+     
+    </h:head>
+    <h:body>
+ 
+     <b:navBar brand="PM TOOL" brandHref="#" inverse="true">
+  <b:navbarLinks>
+    <b:navLink value="Home" href="homeadmin.jsf"></b:navLink>
+ 
+  </b:navbarLinks>
+</b:navBar>
+  <b:form horizontal="true">
+
+<fieldset>
+
+
+<b:container fluid="true" contentDisabled="false">
+  <b:row contentDisabled="false">
+    <b:column span="6" contentDisabled="false" offset="1">
+      <b:inputText placeholder="Nom" value="#{tacheBean.nom}" label="Nom du Tache" required="true"/>
+      <b:dateTimePicker value="#{tacheBean.dateDeb}" label="Date de début" required="true"/>
+            <b:dateTimePicker value="#{tacheBean.dateFin}" label="Date de fin" required="true"/>
+      
+ <p:commandButton value="Ajouter" action="#{tacheBean.ajouterTache()}" icon="pi pi-check" />  
+   </b:column>
+   
+  </b:row>
+</b:container>
+      </fieldset>
+
+  </b:form>
+     
+    </h:body>
+</html>

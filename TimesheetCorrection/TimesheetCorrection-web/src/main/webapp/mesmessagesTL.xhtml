@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+
+    xmlns:p="http://primefaces.org/ui">  
+    <h:head>
+    <meta charset="utf-8" />
+        <h:outputStylesheet library="default" name="css/form.css"  />
+     </h:head>
+     
+     <h:body>
+     
+     
+      
+     <b:navBar brand="PM TOOL" brandHref="#" inverse="true">
+  <b:navbarLinks>
+  <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
+  <b:navbarLinks pull="right" styleClass="hidden-xs">
+    <b:dropMenu value="ADD">
+      <b:navLink value="Projects" href="ajproj.jsf"></b:navLink>
+      <b:navLink value="Tasks" href="ajtask.jsf"></b:navLink>
+    
+     
+    </b:dropMenu>
+ <b:dropMenu value="Sign Out">
+    <h:form>
+ <h:form id="f" >
+ 
+<b:commandButton value="Logout" ajax="true" action="#{userBean.doLogout()}"/>
+        </h:form>
+      </h:form>
+    
+     
+    </b:dropMenu>    
+  </b:navbarLinks>
+  <b:navLink value="Send a Message" href="MessageTL.jsf"></b:navLink>
+    <b:navLink value="Inbox" href="mesmessagesTL.jsf"></b:navLink>
+    <b:navLink value="Projects" href="affproj.jsf"></b:navLink>
+    <b:navLink value="Tasks" href="afftache.jsf"></b:navLink>
+    <b:navLink value="Affect Task " href="tacheproj.jsf"></b:navLink>
+        <b:navLink value="Task State " href="taskstate.jsf"></b:navLink>
+    
+  </b:navbarLinks>
+</b:navBar>
+     
+     <h:form>
+  <b:dataTable value="#{userBean.getMessagebyuser(userBean.id)}"
+               var="p"
+               excel="true"
+               csv="true"
+               pdf="true"
+               columnVisibility="true"
+               copy="true"
+               print="true">
+    <b:dataTableColumn value="#{p.msg}" label="Message" />
+    <b:dataTableColumn value="#{p.sender.nom}" label="Sender" />
+   
+    
+  
+    
+  </b:dataTable>
+  
+</h:form>
+     
+    
+   
+
+	</h:body>
+</html>

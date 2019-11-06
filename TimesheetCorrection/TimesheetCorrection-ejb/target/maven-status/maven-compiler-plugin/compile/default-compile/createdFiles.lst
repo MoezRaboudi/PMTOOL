@@ -1,0 +1,15 @@
+entities\MaxTache.class
+implservices\UserService.class
+interfservices\MessageServiceRemote.class
+entities\Tache.class
+interfservices\TacheServiceRemote.class
+implservices\MaxTacheService.class
+implservices\TacheService.class
+entities\Message.class
+implservices\ProjectService.class
+entities\User.class
+interfservices\UserServiceRemote.class
+implservices\MessageService.class
+interfservices\MaxTacheServiceRemote.class
+entities\Project.class
+interfservices\ProjectServiceRemote.class
